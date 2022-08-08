@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Região",
+        "icon": "icon",
+        "lists": [
+            {
+                "name": "São Paulo",
+                "slug": "sao-paulo",
+                "description": "",
+                "search_terms": "",
+                "seo_title": "",
+                "seo_description": "",
+                "blade": "empregos",
+                "content-types": ["Emprego"],
+                "includes": ["São Paulo"],
+                "sorting": "Created At (DESC)"
+            },
+            {
+                "name": "Rio de Janeiro",
+                "slug": "rio-de-janeiro",
+                "description": "",
+                "search_terms": "",
+                "seo_title": "",
+                "seo_description": "",
+                "blade": "empregos",
+                "content-types": ["Emprego"],
+                "includes": ["Rio de Janeiro"],
+                "sorting": "Created At (DESC)"
+            }
+        ]
+    },
+    {
+        "name": "Setor",
+        "icon": "icon",
+        "lists": [
+            {
+                "name": "TI/Informática",
+                "slug": "ti-informatica",
+                "description": "",
+                "search_terms": "",
+                "seo_title": "",
+                "seo_description": "",
+                "blade": "empregos",
+                "content-types": ["Emprego"],
+                "includes": ["TI/Informática"],
+                "sorting": "Created At (DESC)"
+            },
+            {
+                "name": "Medicina",
+                "slug": "medicina",
+                "description": "",
+                "search_terms": "",
+                "seo_title": "",
+                "seo_description": "",
+                "blade": "empregos",
+                "content-types": ["Emprego"],
+                "includes": ["Medicina"],
+                "sorting": "Created At (DESC)"
+            },
+            {
+                "name": "Ciência e Engenharia",
+                "slug": "ciencia-e-engenharia",
+                "description": "",
+                "search_terms": "",
+                "seo_title": "",
+                "seo_description": "",
+                "blade": "empregos",
+                "content-types": ["Emprego"],
+                "includes": ["Ciência e Engenharia"],
+                "sorting": "Created At (DESC)"
+            },
+            {
+                "name": "Contabilidade e Finanças",
+                "slug": "contabilidade-e-financas",
+                "description": "",
+                "search_terms": "",
+                "seo_title": "",
+                "seo_description": "",
+                "blade": "empregos",
+                "content-types": ["Emprego"],
+                "includes": ["Contabilidade e Finanças"],
+                "sorting": "Created At (DESC)"
+            }
+        ]
+    }
+]

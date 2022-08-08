@@ -1,0 +1,32 @@
+[
+    {
+        "name":"Emprego",
+        "description":"Emprego",
+        "icon":"suitcase",
+        "status":"1",
+        "fields": [
+            {
+                "name": "Descrição",
+                "type": "textfield",
+                "required": "1"
+            },
+            {
+                "name": "Requisitos",
+                "type": "textfield",
+                "required": "0"
+            },
+            {
+                "name": "Região",
+                "type": "select-multiple",
+                "options": ["São Paulo","Rio de Janeiro"],
+                "required": "1"
+            },
+            {
+                "name": "Setor",
+                "type": "select-multiple",
+                "options": ["TI/Informática","Medicina","Ciência e Engenharia","Contabilidade e Finanças"],
+                "required": "1"
+            }
+        ]
+    }
+]
