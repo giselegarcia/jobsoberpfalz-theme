@@ -3,5 +3,5 @@
     "description": "Tema para o portal de emprego www.jobs-oberpfalz.de",
     "image": "https://ik.imagekit.io/areya/tr:ar-5-3,w-800/logo_Hbwj3-ZUIa3.png",
     "version": "1.0",
-    "lumino-version": {"min": "3.0", "max": "3.0"}
+    "lumino-version": {"min": "3.0", "max": "3.4"}
 }
