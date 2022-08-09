@@ -4,6 +4,7 @@
         "description":"Emprego",
         "icon":"suitcase",
         "status":"1",
+        "blade":"emprego",
         "fields": [
             {
                 "name": "Descrição",

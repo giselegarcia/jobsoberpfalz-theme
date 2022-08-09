@@ -92,8 +92,8 @@
             <br>
         </div>
         <div id="city_headline">
-            <h1>Die besten <strong>Arbeitsstellen</strong> der <strong>Oberpfalz</strong></h1>
-            <h2 class="shadow">Jetzt Traumjob finden und direkt online bewerben.</h2>
+            <h1>Os melhores <strong>Empregos</strong></h1>
+            <h2 class="shadow">Encontre o emprego dos seus sonhos agora e inscreva-se diretamente online.</h2>
         </div>
         <div class="d-none d-md-block">
             <br>
@@ -122,7 +122,6 @@
 </div>
 <div class="contaeinr">
 </div>
-@if(count($premiumAuthors) > 0)
 <section>
     <div class="row carousel-row">
         <div class="container">
@@ -130,18 +129,17 @@
                 <h2 style="text-align: left" class="mb-4">Top <strong>Arbeitgeber</strong> mit offenen <strong>Arbeitsstellen</strong></h2>
             </div>
             <div class="row top_arbeitgeber logo-carousel slider" data-arrows="true">
-                @foreach($premiumAuthors as $premiumAuthor)
+                @for($i = 0; $i < 10; $i++)
                 <div class="logos slide" style="padding-bottom: 40px; text-align: center">
-                    <a href="{{url('/arbeitgeber')}}/{{$premiumAuthor->slug}}" class="text-center" style="font-size: 13px;">
-                        <img src="{{url('/uploads/profile')}}/{{$premiumAuthor->image}}" loading="lazy" alt="Logo {{$premiumAuthor->name}}" class="img-fluid center-block border rounded mb-2">
+                    <a href="" class="text-center" style="font-size: 13px;">
+                        <img src="" loading="lazy" alt="Logo" class="img-fluid center-block border rounded mb-2">
                     </a>
                 </div>
-                @endforeach
+                @endfor
             </div>
         </div>
     </div>
 </section>
-@endif
 <section class="mt-2">
     <div class="row">
         <div class="col-lg-12 mb-4">
@@ -352,10 +350,10 @@
     </div>
 </section>
 <section>
-    <div class="row" style="overflow: scroll">
-        <h2 class="mb-4">JOBANGEBOTE NACH <strong>BRANCHE</strong></h2>
+    <div class="row" style="overflow: auto;">
+        <h2 class="mb-4">Trabalhos por <strong>Setor</strong></h2>
         <div id="jobbranche">
-            @foreach(getListsByGroup("Branche") as $groupList)
+            @foreach(getListsByGroup("Setor") as $groupList)
 
                 <a href="{{url('/'.$groupList->slug)}}">
                     <div class="badge primary jobbranche">
@@ -369,11 +367,11 @@
 <section>
     <div class="row">
         <div class="col">
-            <h2 class="mb-5">JOBS NACH <strong>REGIONEN</strong></h2>
+            <h2 class="mb-5">Trabalhos por <strong>Região</strong></h2>
         </div>
     </div>
     <div class="row text-center" style="font-size: 20px;">
-        @foreach(getListsByGroup("Region") as $groupList)
+        @foreach(getListsByGroup("Região") as $groupList)
                 <div class="col-6 col-md-3 mb-5">
                     <a href="{{url('/'.$groupList->slug)}}">
                         <img src="{{!empty($groupList->image)?asset('uploads/lists/'.$groupList->image):'https://www.jobs-oberpfalz.de/images/manual/regensburg.jpg'}}" class="img-fluid rounded border" loading="lazy">
