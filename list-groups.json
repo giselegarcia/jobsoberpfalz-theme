@@ -4,27 +4,27 @@
         "icon": "icon",
         "lists": [
             {
-                "name": "São Paulo",
-                "slug": "sao-paulo",
+                "name": "Regensburg",
+                "slug": "regensburg",
                 "description": "",
                 "search_terms": "",
                 "seo_title": "",
                 "seo_description": "",
                 "blade": "empregos",
                 "content-types": ["Emprego"],
-                "includes": ["São Paulo"],
+                "includes": ["Regensburg"],
                 "sorting": "Created At (DESC)"
             },
             {
-                "name": "Rio de Janeiro",
-                "slug": "rio-de-janeiro",
+                "name": "Weiden",
+                "slug": "weiden",
                 "description": "",
                 "search_terms": "",
                 "seo_title": "",
                 "seo_description": "",
                 "blade": "empregos",
                 "content-types": ["Emprego"],
-                "includes": ["Rio de Janeiro"],
+                "includes": ["Weiden"],
                 "sorting": "Created At (DESC)"
             }
         ]

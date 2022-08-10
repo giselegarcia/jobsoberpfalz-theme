@@ -1,7 +1,7 @@
-@extends('template.'.config('settings.template').'.content.master')
-@section('meta_title', 'Jobs-Oberpfalz.de | Finde hier die besten Jobs der Oberpfalz')
-@section('meta_description', 'Aktuelle Stellenangebote aus deiner Region. Über 800 Arbeitgeber mit offenen Stellen warten auf dich. Online Bewerbung ohne Registrierung!')
+@extends('template.'.config('settings.template').'.content.layout')
 @section('head')
+<title>Jobs-Oberpfalz.de | Finde hier die besten Jobs der Oberpfalz</title>
+<meta name="description" content="Aktuelle Stellenangebote aus deiner Region. Über 800 Arbeitgeber mit offenen Stellen warten auf dich. Online Bewerbung ohne Registrierung!">
 <meta name="url-base" content="{{url('')}}">
 <style>
     .slick-slider{position:relative;display:block;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;-khtml-user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0}.slick-list:focus{outline:none}.slick-list.dragging{cursor:pointer;cursor:hand}.slick-slider .slick-list,.slick-slider .slick-track{-webkit-transform:translate3d(0, 0, 0);-moz-transform:translate3d(0, 0, 0);-ms-transform:translate3d(0, 0, 0);-o-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}.slick-track{position:relative;top:0;left:0;display:block;margin-left:auto;margin-right:auto}.slick-track:after,.slick-track:before{display:table;content:''}.slick-track:after{clear:both}.slick-loading .slick-track{visibility:hidden}.slick-slide{display:none;float:left;height:100%;min-height:1px}[dir='rtl'] .slick-slide{float:right}.slick-slide img{display:block}.slick-slide.slick-loading img{display:none}.slick-slide.dragging img{pointer-events:none}.slick-initialized .slick-slide{display:block}.slick-loading .slick-slide{visibility:hidden}.slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent}.slick-arrow.slick-hidden{display:none}
@@ -120,22 +120,20 @@
         </div>
     </div>
 </div>
-<div class="contaeinr">
-</div>
 <section>
     <div class="row carousel-row">
         <div class="container">
             <div class="col-sm-12">
-                <h2 style="text-align: left" class="mb-4">Top <strong>Arbeitgeber</strong> mit offenen <strong>Arbeitsstellen</strong></h2>
+                <h2 style="text-align: left" class="mb-4">Top <strong>Empresas</strong></h2>
             </div>
             <div class="row top_arbeitgeber logo-carousel slider" data-arrows="true">
-                @for($i = 0; $i < 10; $i++)
+                @foreach($premiumAuthors as $premiumAuthor)
                 <div class="logos slide" style="padding-bottom: 40px; text-align: center">
                     <a href="" class="text-center" style="font-size: 13px;">
-                        <img src="" loading="lazy" alt="Logo" class="img-fluid center-block border rounded mb-2">
+                        <img src="{{url('/uploads/profile')}}/{{$premiumAuthor->image}}" loading="lazy" alt="Logo {{$premiumAuthor->name}}" class="img-fluid center-block border rounded mb-2">
                     </a>
                 </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>
@@ -143,7 +141,7 @@
 <section class="mt-2">
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <h2 id="latest_jobs" class="mt-5 mb-4">Aktuelle <strong>Jobangebote</strong></h2>
+            <h2 id="latest_jobs" class="mt-5 mb-4">Ofertas de  <strong>Trabalho</strong></h2>
         </div>
         <div id="list-filter-menue" class="d-none d-lg-block col-12 position-relative col-md-3 rounded-end" style="background-color: #f49c35; padding: 25px;">
             <div class="row">
@@ -164,182 +162,51 @@
             </div>
         </div>
         <div class="col-12 col-lg-9">
-            @php($externe = false)
             @foreach($contents as $indexContent => $content)
-                @if($content->premium_type == 'premium')
-                    <div class="card mb-3" style="background-color: #daeed8;">
-                        <div class="text-center rounded-top" style="font-size: 12px; background-color: #3daa7352">
-                            <svg style="fill: black; width: 12px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M463.7 0H112.3c-4.2 0-8.1 2.2-10.3 5.8L1.7 168.6c-2.7 4.4-2.2 10.1 1.2 14l276 325.2c4.8 5.6 13.4 5.6 18.2 0l276-325.2c3.4-3.9 3.8-9.6 1.2-14L474 5.8c-2.2-3.6-6.1-5.8-10.3-5.8zm-13.6 36l74.3 124h-83L384.6 36h65.5zM345 36l56.8 124H174.1L231 36h114zm-219.1 0h65.5l-56.8 124h-83l74.3-124zM61.2 192h73L216 384 61.2 192zm112 0h229.5L288 455.8 173.2 192zM360 384l81.8-192h73L360 384z"/></svg>
-                            Premium Jobangebot
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-3 col-lg-1">
-                                    <a href="{{url('/arbeitgeber')}}/{{$content->user->slug}}" onclick="gtag('event', 'See Employer', {'event_label' : '{{ $content->user->name }}'});">
-                                        <img src="{{ $content->user->gravatar() }}" title="{{ $content->user->name }}" height="70px" class="border rounded" alt="Logo {{ $content->user->name }}">
+            <div class="col-12" style="padding-bottom: 1rem;">
+                <div class="card" style="background-color: #f8f8f8;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3 col-lg-1">
+                                <a href="#" onclick="gtag('event', 'See Employer', {'event_category' : 'Home', 'event_label' : '{{ $content->user->name }}'});">
+                                    <img src="{{ $content->user->gravatar() }}" title="{{ $content->user->name }}" class="border rounded img-fluid shadow-sm" alt="Logo {{ $content->user->name }} ">
+                                </a>
+                            </div>
+                            <div class="col-9 col-lg-2">
+                                <a href="#" class="text-muted" onclick="gtag('event', 'See Employer', {'event_category' : 'Home', 'event_label' : '{{ $content->user->name }}'});">
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="height:25px; fill: black;" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+                                        <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+                                    </svg>
+                                    {{$content->user->name}}
+                                </a>
+                            </div>
+                            <div class="col-12 col-lg-7">
+                                <h5 class="card-title" style="margin-top: 20px;">
+                                    <a href="{{ route_content($content) }}" onclick="gtag('event', 'See Job', {'event_category' : 'Home', 'event_label' : '{{$content->title}}'});">
+                                        {{$content->title}}
                                     </a>
-                                </div>
-                                <div class="col-9 col-lg-2">
-                                    <br>
-                                    <a href="{{url('/arbeitgeber')}}/{{$content->user->slug}}" class="text-muted" onclick="gtag('event', 'See Employer', {'event_label' : '{{ $content->user->name }}'});">
-                                        {{$content->user->name}}
-                                    </a>
-                                </div>
-                                <div class="col-12 col-lg-7">
-                                    <h5 class="card-title" style="margin-top: 20px;">
-                                        <a href="{{ route_content($content) }}" onclick="gtag('event', 'See Job', {'event_label' : '{{$content->title}}'});">
-                                            {{$content->title}}
-                                        </a>
-                                    </h5>
-                                </div>
-                                <div class="col-5 d-lg-none">
-                                    <br>
-                                    @php(\Carbon\Carbon::setLocale('de'))
-                                    <h6 class="card-subtitle mb-2 text-muted" title="{{date('d.m.Y', strtotime($content->updated_at))}}">{{ $content->updated_at->diffForHumans() }}</h6>
-                                </div>
-                                <div class="col-7 col-lg-2 text-end ">
-                                    <h6 class="card-subtitle mb-2 text-muted d-none d-lg-block text-center" title="{{date('d.m.Y', strtotime($content->updated_at))}}">{{ $content->updated_at->diffForHumans() }}</h6>
-                                    <a class="btn btn-ci btn-sm" href="{{ route_content($content) }}" onclick="gtag('event', 'See Job', {'event_label' : '{{$content->title}}'});">
-                                        Job ansehen
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                                        </svg>
-                                    </a>
-                                </div>
+                                </h5>
+                            </div>
+                            <div class="col-5 d-lg-none">
+                                <br>
+                                @php(\Carbon\Carbon::setLocale('pt-br'))
+                                <h6 class="card-subtitle mb-2 text-muted" title="{{date('d.m.Y', strtotime($content->updated_at))}}"> {{ $content->updated_at->diffForHumans() }}</h6>
+
+                            </div>
+                            <div class="col-7 col-lg-2 text-end ">
+                                <h6 class="card-subtitle mb-2 text-muted d-none d-lg-block text-center mt-3" title="{{date('d.m.Y', strtotime($content->updated_at))}}"> {{ $content->updated_at->diffForHumans() }}</h6>
+                                <a class="btn btn-ci btn-sm" href="{{ route_content($content) }}" onclick="gtag('event', 'See Job', {'event_category' : 'Home', 'event_label' : '{{$content->title}}'});">
+                                    Ver Emprego
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
-                @elseif($content->premium_type == 'premium_user')
-                    <div class="col-12">
-                        <div class="card mb-3" style="background-color: #f8f8f8;">
-                            <div class="card-body">
-                                <div class="row">
-
-                                    <div class="col-3 col-lg-1">
-                                        <a href="{{url('/arbeitgeber')}}/{{$content->user->slug}}" onclick="gtag('event', 'See Employer', {'event_label' : '{{ $content->user->name }}'});">
-                                            <img src="{{ $content->user->gravatar() }}" title="{{ $content->user->name }}" height="70px" class="border rounded" alt="Logo {{ $content->user->name }}">
-                                        </a>
-                                    </div>
-                                    <div class="col-9 col-lg-2">
-                                        <br>
-                                        <a href="{{url('/arbeitgeber')}}/{{$content->user->slug}}" class="text-muted" onclick="gtag('event', 'See Employer', {'event_label' : '{{ $content->user->name }}'});">
-                                            {{$content->user->name}}
-                                            <br>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-lg-7">
-                                        <h5 class="card-title" style="margin-top: 20px;">
-                                            <a href="{{ route_content($content) }}" onclick="gtag('event', 'See Job', {'event_label' : '{{$content->title}}'});">
-                                                {{$content->title}}
-                                            </a>
-                                        </h5>
-
-                                        <span class="badge bg-success">
-                                            <svg style="fill: white; width: 12px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M463.7 0H112.3c-4.2 0-8.1 2.2-10.3 5.8L1.7 168.6c-2.7 4.4-2.2 10.1 1.2 14l276 325.2c4.8 5.6 13.4 5.6 18.2 0l276-325.2c3.4-3.9 3.8-9.6 1.2-14L474 5.8c-2.2-3.6-6.1-5.8-10.3-5.8zm-13.6 36l74.3 124h-83L384.6 36h65.5zM345 36l56.8 124H174.1L231 36h114zm-219.1 0h65.5l-56.8 124h-83l74.3-124zM61.2 192h73L216 384 61.2 192zm112 0h229.5L288 455.8 173.2 192zM360 384l81.8-192h73L360 384z"/></svg>
-                                            Top Arbeitgeber
-                                        </span>
-                                    </div>
-
-                                    <div class="col-5 d-lg-none">
-                                        <br>
-                                        @php(\Carbon\Carbon::setLocale('de'))
-                                        <h6 class="card-subtitle mb-2 text-muted" title="{{date('d.m.Y', strtotime($content->updated_at))}}">{{ $content->updated_at->diffForHumans() }}</h6>
-                                    </div>
-                                    <div class="col-7 col-lg-2 text-end ">
-                                        <h6 class="card-subtitle mb-2 text-muted d-none d-lg-block text-center" title="{{date('d.m.Y', strtotime($content->updated_at))}}">{{ $content->updated_at->diffForHumans() }}</h6>
-                                        <a class="btn btn-ci btn-sm" href="{{ route_content($content) }}" onclick="gtag('event', 'See Job', {'event_label' : '{{$content->title}}'});">
-                                            Job ansehen
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                @elseif($content->premium_id == 3)
-                    <div class="col-12" style="padding-bottom: 1rem;">
-                        <div class="card" style="background-color: #f8f8f8;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-3 col-lg-1">
-                                        <a href="{{url('/arbeitgeber')}}/{{$content->user->slug}}" onclick="gtag('event', 'See Employer', {'event_category' : 'Home', 'event_label' : '{{ $content->user->name }}'});">
-                                            <img src="{{ $content->user->gravatar() }}" title="{{ $content->user->name }}" class="border rounded img-fluid shadow-sm" alt="Logo {{ $content->user->name }} ">
-                                        </a>
-                                    </div>
-                                    <div class="col-9 col-lg-2">
-                                        <a href="{{url('/arbeitgeber')}}/{{$content->user->slug}}" class="text-muted" onclick="gtag('event', 'See Employer', {'event_category' : 'Home', 'event_label' : '{{ $content->user->name }}'});">
-                                            <svg xmlns="http://www.w3.org/2000/svg" style="height:25px; fill: black;" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
-                                                <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
-                                            </svg>
-                                            {{$content->user->name}}
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-lg-7">
-                                        <h5 class="card-title" style="margin-top: 20px;">
-                                            <a href="{{ route_content($content) }}" onclick="gtag('event', 'See Job', {'event_category' : 'Home', 'event_label' : '{{$content->title}}'});">
-                                                {{$content->title}}
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div class="col-5 d-lg-none">
-                                        <br>
-                                        @php(\Carbon\Carbon::setLocale('de'))
-                                        <h6 class="card-subtitle mb-2 text-muted" title="{{date('d.m.Y', strtotime($content->updated_at))}}"> {{ $content->updated_at->diffForHumans() }}</h6>
-
-                                    </div>
-                                    <div class="col-7 col-lg-2 text-end ">
-                                        <h6 class="card-subtitle mb-2 text-muted d-none d-lg-block text-center mt-3" title="{{date('d.m.Y', strtotime($content->updated_at))}}"> {{ $content->updated_at->diffForHumans() }}</h6>
-                                        <a class="btn btn-ci btn-sm" href="{{ route_content($content) }}" onclick="gtag('event', 'See Job', {'event_category' : 'Home', 'event_label' : '{{$content->title}}'});">
-                                            Job ansehen
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($content->premium_id == 4)
-                    @if(!$externe)
-                    <div class="row">
-                    @endif
-                    <div class="col-12 col-md-4 mb-3">
-                        <a href="{{(isset($content->data_fields['link_zur_onlinebewerbung'])?$content->data_fields['link_zur_onlinebewerbung']:'')}}" target="_blank" rel="sponsored">
-                            <div class="card shadow-sm h-100" style="background-color: #f7efef6b;">
-                                <div class="text-center rounded-top" style="font-size: 12px; background-color: #ae9f7a52">
-                                    <svg style="fill: black; width: 12px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M463.7 0H112.3c-4.2 0-8.1 2.2-10.3 5.8L1.7 168.6c-2.7 4.4-2.2 10.1 1.2 14l276 325.2c4.8 5.6 13.4 5.6 18.2 0l276-325.2c3.4-3.9 3.8-9.6 1.2-14L474 5.8c-2.2-3.6-6.1-5.8-10.3-5.8zm-13.6 36l74.3 124h-83L384.6 36h65.5zM345 36l56.8 124H174.1L231 36h114zm-219.1 0h65.5l-56.8 124h-83l74.3-124zM61.2 192h73L216 384 61.2 192zm112 0h229.5L288 455.8 173.2 192zM360 384l81.8-192h73L360 384z"/></svg>
-                                    Externe Partnerangebote
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h5 class="card-title fs-6">{{$content->title}}</h5>
-                                        </div>
-                                        <div class="col-12 text-center">
-                                            <h6 class="card-subtitle mt-2 text-muted" >{{(isset($content->data_fields['wir_als_arbeitgeber'])?$content->data_fields['wir_als_arbeitgeber']:'')}}</h6>
-                                        </div>
-                                        <div class=" col-12 pt-sm-3">
-                                            <div style="font-size: 13px;" class="text-muted">
-                                                @php(\Carbon\Carbon::setLocale('de'))
-                                                {{$content->updated_at->diffForHumans()}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    @if($indexContent == count($contents)-1)
-                    </div>
-                    <br>
-                    @endif
-                    @php($externe = true)
-                @endif
+                </div>
+            </div>
             @endforeach
             <div class="col-12">
                 <div style="margin: auto;text-align: center;    display: table; overflow: scroll;">
@@ -354,7 +221,6 @@
         <h2 class="mb-4">Trabalhos por <strong>Setor</strong></h2>
         <div id="jobbranche">
             @foreach(getListsByGroup("Setor") as $groupList)
-
                 <a href="{{url('/'.$groupList->slug)}}">
                     <div class="badge primary jobbranche">
                         {{$groupList->name}}

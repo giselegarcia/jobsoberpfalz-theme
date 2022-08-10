@@ -19,7 +19,7 @@
             {
                 "name": "Região",
                 "type": "select-multiple",
-                "options": ["São Paulo","Rio de Janeiro"],
+                "options": ["Weiden","Regensburg"],
                 "required": "1"
             },
             {
