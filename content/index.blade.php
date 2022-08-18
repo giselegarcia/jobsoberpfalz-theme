@@ -1,256 +1,551 @@
-@extends('template.'.config('settings.template').'.content.layout')
-@section('head')
-<title>Jobs-Oberpfalz.de | Finde hier die besten Jobs der Oberpfalz</title>
-<meta name="description" content="Aktuelle Stellenangebote aus deiner Region. Über 800 Arbeitgeber mit offenen Stellen warten auf dich. Online Bewerbung ohne Registrierung!">
-<meta name="url-base" content="{{url('')}}">
-<style>
-    .slick-slider{position:relative;display:block;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;-khtml-user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0}.slick-list:focus{outline:none}.slick-list.dragging{cursor:pointer;cursor:hand}.slick-slider .slick-list,.slick-slider .slick-track{-webkit-transform:translate3d(0, 0, 0);-moz-transform:translate3d(0, 0, 0);-ms-transform:translate3d(0, 0, 0);-o-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}.slick-track{position:relative;top:0;left:0;display:block;margin-left:auto;margin-right:auto}.slick-track:after,.slick-track:before{display:table;content:''}.slick-track:after{clear:both}.slick-loading .slick-track{visibility:hidden}.slick-slide{display:none;float:left;height:100%;min-height:1px}[dir='rtl'] .slick-slide{float:right}.slick-slide img{display:block}.slick-slide.slick-loading img{display:none}.slick-slide.dragging img{pointer-events:none}.slick-initialized .slick-slide{display:block}.slick-loading .slick-slide{visibility:hidden}.slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent}.slick-arrow.slick-hidden{display:none}
-    .slick-slide{margin:0 20px}.logo-carousel{overflow:inherit}.slick-slide img{width:100%}.slick-track::after,.slick-track::before{display:table;content:''}.slick-track::after{clear:both}.slick-track{}.slick-loading .slick-track{visibility:hidden}.slick-slide.slick-loading img{display:none}.slick-slide.dragging img{pointer-events:none}.slick-loading .slick-slide{visibility:hidden}.slick-arrow{position:absolute;top:50%;background:url("https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/arrow.svg?sanitize=true") center no-repeat;color:#fff;filter: invert(77%) sepia(32%) saturate(1%) hue-rotate(344deg) brightness(105%) contrast(103%);border:none;width:2rem;height:1.5rem;text-indent:-10000px;margin-top:-16px;z-index:99}.slick-arrow.slick-next{right:5px;transform:rotate(180deg)}.slick-arrow.slick-prev{left:5px}@media (max-width: 768px){.slick-arrow{width:1rem;height:1rem}}.carousel-row{overflow:hidden}.logo-carousel{margin-top:32px}
-    @media only screen and (max-width: 676px) {
-        #home-hero {
-            width: 100%;
-            background-color: #9699AA;
-            background-image: url('https://www.jobs-oberpfalz.de/images/manual/regensburg-sm.jpg');
-            background-position: center;
-            background-size: cover;
-        }
-    }
-    @media only screen and (min-width: 676px) {
-        #home-hero {
-            width: 100%;
-            background-color: #9699AA;
-            background-image: url('https://www.jobs-oberpfalz.de/images/manual/regensburg.jpg');
-            background-position: center;
-            background-size: cover;
-        }
-    }
-    .result-item{display:flex;align-items:center;margin-top:40px;font-size:20px}.result-item span{margin-left:10px;font-size:12px;padding:2px 5px;border-radius:5px;font-style:italic;color:#fff;background-color:#f44336aa}
-    #list-filter-menue .form-check-input:checked{
-        background-color: #157347;
-        border-color: #146c43;
-    }
-    #list-filter-menue .form-check {
-        min-height: 2.5rem;
-    }
-    #list-filter-menue .bg-light
-    {
-        background-color: #f8f9fa29 !important;
-    }
-    #list-filter-menue .badge{
-        font-weight: normal;
-        margin-right: 10px;
-    }
-    .accordion-button:not(.collapsed) {
-        color: #000;
-        background-color: #f49c35;
-    }
-    .accordion-collapse {
-        border: none;
-    }
-    .accordion-button {
-        border: none;
-    }
-    #searchcontainer {
-        background: rgb(255, 255, 255);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.7413165949973739) 0%, rgba(244, 156, 53, 0.556442645417542) 50%, rgba(252, 176, 69, 1) 100%);
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-    @media only screen and (min-width: 990px) {
-        #searchcontainer {
-            margin-top: -109px;
-        }
-    }
-    .jobbranche {
-        font-size: 19px;
-        border: 2px solid #f49c35;
-        background-color: #f8f8f8;
-        color: black;
-        padding: 10px;
-        margin: 8px;
-    }
-    .jobbranche:hover {
-        border: 2px solid #ec8b19;
-        background-color: #f49c35;
-        color: white;
-    }
-    #jobbranche {
-        text-align: center;
-        overflow: scroll-x;
-    }
-    #jobbranche a:hover,
-    #jobbranche a:active {
-        text-decoration: none;
-    }
-</style>
-@stop
-@section('content')
-<div class="row">
-    <div id="home-hero">
-        <div class="d-none d-md-block">
-            <br>
-            <br>
-        </div>
-        <div id="city_headline">
-            <h1>Os melhores <strong>Empregos</strong></h1>
-            <h2 class="shadow">Encontre o emprego dos seus sonhos agora e inscreva-se diretamente online.</h2>
-        </div>
-        <div class="d-none d-md-block">
-            <br>
-        </div>
-        <div class="d-none d-lg-block">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </div>
-    </div>
-    <div id="searchcontainer" class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-lg-8 offset-lg-2">
-                <div class="input-group input-group-lg">
-                    <span class="input-group-text" id="inputGroup-sizing-lg">🔍</span>
-                    <input type="search" id="txt-main-search" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Suche nach Arbeitgeber, Region, Branche, ..." list="searchresults">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<section>
-    <div class="row carousel-row">
-        <div class="container">
-            <div class="col-sm-12">
-                <h2 style="text-align: left" class="mb-4">Top <strong>Empresas</strong></h2>
-            </div>
-            <div class="row top_arbeitgeber logo-carousel slider" data-arrows="true">
-                @foreach($premiumAuthors as $premiumAuthor)
-                <div class="logos slide" style="padding-bottom: 40px; text-align: center">
-                    <a href="" class="text-center" style="font-size: 13px;">
-                        <img src="{{url('/uploads/profile')}}/{{$premiumAuthor->image}}" loading="lazy" alt="Logo {{$premiumAuthor->name}}" class="img-fluid center-block border rounded mb-2">
-                    </a>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-</section>
-<section class="mt-2">
-    <div class="row">
-        <div class="col-lg-12 mb-4">
-            <h2 id="latest_jobs" class="mt-5 mb-4">Ofertas de  <strong>Trabalho</strong></h2>
-        </div>
-        <div id="list-filter-menue" class="d-none d-lg-block col-12 position-relative col-md-3 rounded-end" style="background-color: #f49c35; padding: 25px;">
-            <div class="row">
-                <div class="col-12">
-                    @foreach($listGroups as $listGroup)
-                        <h5 class="mt-5 mb-3 fw-bold">{{$listGroup->name}}</h5>
-                        @foreach($listGroup->lists as $listGroupList)
-                            <div class="form-check">
-                                <input class="form-check-input check-branche" type="checkbox" value="{{$listGroupList->slug}}" id="flexCheck{{$listGroupList->name}}">
-                                <label class="form-check-label" for="flexCheck{{$listGroupList->name}}">
-                                    {{$listGroupList->name}}
-                                    <span class="badge bg-light text-dark">{{$listGroupList->contents($listGroupList)->count()}} Jobs</span>
-                                </label>
-                            </div>
-                        @endforeach
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-9">
-            @foreach($contents as $indexContent => $content)
-            <div class="col-12" style="padding-bottom: 1rem;">
-                <div class="card" style="background-color: #f8f8f8;">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-3 col-lg-1">
-                                <a href="#" onclick="gtag('event', 'See Employer', {'event_category' : 'Home', 'event_label' : '{{ $content->user->name }}'});">
-                                    <img src="{{ $content->user->gravatar() }}" title="{{ $content->user->name }}" class="border rounded img-fluid shadow-sm" alt="Logo {{ $content->user->name }} ">
-                                </a>
-                            </div>
-                            <div class="col-9 col-lg-2">
-                                <a href="#" class="text-muted" onclick="gtag('event', 'See Employer', {'event_category' : 'Home', 'event_label' : '{{ $content->user->name }}'});">
-                                    <svg xmlns="http://www.w3.org/2000/svg" style="height:25px; fill: black;" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
-                                        <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
-                                    </svg>
-                                    {{$content->user->name}}
-                                </a>
-                            </div>
-                            <div class="col-12 col-lg-7">
-                                <h5 class="card-title" style="margin-top: 20px;">
-                                    <a href="{{ route_content($content) }}" onclick="gtag('event', 'See Job', {'event_category' : 'Home', 'event_label' : '{{$content->title}}'});">
-                                        {{$content->title}}
-                                    </a>
-                                </h5>
-                            </div>
-                            <div class="col-5 d-lg-none">
-                                <br>
-                                @php(\Carbon\Carbon::setLocale('pt-br'))
-                                <h6 class="card-subtitle mb-2 text-muted" title="{{date('d.m.Y', strtotime($content->updated_at))}}"> {{ $content->updated_at->diffForHumans() }}</h6>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empregos de informática e TI em Neumarkt</title>
 
-                            </div>
-                            <div class="col-7 col-lg-2 text-end ">
-                                <h6 class="card-subtitle mb-2 text-muted d-none d-lg-block text-center mt-3" title="{{date('d.m.Y', strtotime($content->updated_at))}}"> {{ $content->updated_at->diffForHumans() }}</h6>
-                                <a class="btn btn-ci btn-sm" href="{{ route_content($content) }}" onclick="gtag('event', 'See Job', {'event_category' : 'Home', 'event_label' : '{{$content->title}}'});">
-                                    Ver Emprego
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+  
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!--CSS e JS-->
+    <link rel="stylesheet" href="{{storage('assets/style.css')}}">
+    <link rel="stylesheet" href="{{storage('assets/img')}}">
+    <script src="{{storage('assets/script.js')}}"></script>  
+    
+    <!--Fontawesome CDN Link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+     <!-- ===== Boxicons CSS ===== -->
+     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="">
+      <nav>
+        <div class="nav-bar">
+          <i class='bx bx-menu sidebarOpen' ></i>
+          <span class="logo navLogo"><a href="#"><img class="logotipo" src="https://www.jobs-oberpfalz.de/images/manual/logo.png" alt=""></a></span>
+  
+          <div class="darkLight-searchBox">
+            <div class="dark-light">
+                      <i class='bx bx-moon moon'></i>
+                      <i class='bx bx-sun sun'></i>
             </div>
-            @endforeach
-            <div class="col-12">
-                <div style="margin: auto;text-align: center;    display: table; overflow: scroll;">
-                    {!! $contents->onEachSide(1)->fragment("latest_jobs")->render() !!}
-                </div>
+  
+          </div>
+          <div class="menu">
+            <div class="logo-toggle">
+                <span class="logo"><a href="#">Jobs Oberpfalz.de</a></span>
+                <i class='bx bx-x siderbarClose'></i>
             </div>
-        </div>
+
+            <ul class="nav-links">
+                <li><a href="#" class="item-nav">Arbeitgeberübersicht</a></li>
+                <li><a href="#" class="item-nav">Info</a></li>
+                <li><a id="login" href="#" class="item-nav">Login</a></li>
+                <li><a id="registre" href="#" class="item-nav">Registrieren</a></li>
+            </ul>
     </div>
-</section>
-<section>
-    <div class="row" style="overflow: auto;">
-        <h2 class="mb-4">Trabalhos por <strong>Setor</strong></h2>
-        <div id="jobbranche">
-            @foreach(getListsByGroup("Setor") as $groupList)
-                <a href="{{url('/'.$groupList->slug)}}">
-                    <div class="badge primary jobbranche">
-                        {{$groupList->name}}
-                    </div>
-                </a>
-            @endforeach
         </div>
-    </div>
-</section>
-<section>
-    <div class="row">
-        <div class="col">
-            <h2 class="mb-5">Trabalhos por <strong>Região</strong></h2>
-        </div>
-    </div>
-    <div class="row text-center" style="font-size: 20px;">
-        @foreach(getListsByGroup("Região") as $groupList)
-                <div class="col-6 col-md-3 mb-5">
-                    <a href="{{url('/'.$groupList->slug)}}">
-                        <img src="{{!empty($groupList->image)?asset('uploads/lists/'.$groupList->image):'https://www.jobs-oberpfalz.de/images/manual/regensburg.jpg'}}" class="img-fluid rounded border" loading="lazy">
-                        {{$groupList->name}}
-                    </a>
+      </nav>
+    </header>
+    <main class="container">
+        <!-------------Sessão Hero Inicial------------>
+        <section class="hero-inicial">
+          <div class="content-hero">
+            <div class="content-txt">
+              <img src="{{storage('assets/img/bg.png')}}" class="feature-img anim" alt="">
+              <div class="hero">
+                <h1 class="anim">Aqui você encontra os melhores empregos do Alto Palatinado</h1>
+                <p class="anim">Nós ajudamos você a escolher seu melhor caminho em um Click!</p>
+                <div class="formulario">
+                  <form action="#" class="search-bar anim">
+                    <input type="text" placeholder="Pesquise por empregador, setor, região..." name="search">
+                    <button id="btn-search" type="submit"><img src="{{storage('assets/img/search.png')}}" alt="" id="icon-search"></button>
+                  </form>
                 </div>
-        @endforeach
-</section>
-@stop
-@section('scripts')
-<script defer src="{{storage('js/libs/slick.min.js')}}"></script>
-<script src="{{storage('js/pages/main/data.js')}}"></script>
-<script src="{{storage('js/pages/main/events.js')}}"></script>
-<script src="{{storage('js/pages/main/methods.js')}}"></script>
-<script src="{{storage('js/pages/main/script.js')}}"></script>
-@stop
+              </div>
+              
+            </div>
+            <div class="top container">
+              <h3>TOP Arbeitgeber mit offenen Arbeitsstellen</h3>
+            </div>
+            <div class="slider">
+              <div class="slide-track">
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-1.jpg')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-2.png')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-3.jpg')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-4.png')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-5.jpg')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-6.jpg')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-7.jpg')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="assets/img/slide-8.jpeg" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-1.jpg')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-2.png')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-3.jpg')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-4.png')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-5.jpg')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-6.jpg')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="{{storage('assets/img/slide-7.jpg')}}" alt="">
+                </div>
+                <div class="slide">
+                  <img src="assets/img/slide-8.jpeg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+       
+       
+        
+        <!------------Segunda Sessão LIST CONTAINE----------->
+        <div class="container-fluid list-container">
+          <div class="container">
+            <h1 id="h1-lista">Ofertas de trabalho atuais</h1>
+            
+            <div class="lista">
+              <div class="col-right">
+                <div class="sidebar">
+                  <h2>Filtros Avançados</h2>
+                  <hr>
+                  <div class="select-btn">
+                    <span class="btn-text">Região</span>
+                    <span class="arrow-dwn">
+                      <img class="icon" src="{{storage('assets/img/chevron.png')}}" alt="">
+                    </span>
+                  </div>
+                  <ul class="list-items1">
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Regensburg</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Weiden</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Amberg</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Schwandorf </span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Neumarkt </span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Cham</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Neustadt </span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Tirschenreuth </span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Nabburg </span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Sulzbach-Rosenberg</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Vohenstrauß</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Eschenbach </span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                  </ul>
+                  <div class="select-btn2">
+                    <span class="btn-text2">Tipo de Emprego</span>
+                    <span class="arrow-dwn">
+                      <img class="icon" src="{{storage('assets/img/chevron.png')}}" alt="">
+                    </span>
+                  </div>
+                  <ul class="list-items2">
+                    <li class="item2">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Tempo Total</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item2">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Tempo Parcial</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item2">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Mini trabalho</span>
+                      <span class="span">(0) jobs</span>
+                    </li>                  
+                    <li class="item2">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Educação</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                  </ul>
+                  <div class="select-btn3">
+                    <span class="btn-text3">Por Setor</span>
+                    <span class="arrow-dwn">
+                      <img class="icon" src="{{storage('assets/img/chevron.png')}}" alt="">
+                    </span>
+                  </div>
+                  <ul class="list-items3">
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Iframe</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Ciência e engenharia</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Computadores e TI</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Assistência Médica</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Gestão</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Produção e Armazém</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Contabilidade e finanças</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Distribuição e Varejo</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Construção</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Instalação, manutenção</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Treinamento</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Escritório de Administração</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Transporte e Logística</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Recursos Humanos</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Gastronomia</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Viagens e entretenimento</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Atendimento ao Cliente</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                    <li class="item3">
+                      <span class="checkbox">
+                        <img src="{{storage('assets/img/icon-check.png')}}" alt="">
+                      </span>
+                      <span class="item-text">Serviço Público</span>
+                      <span class="span">(0) jobs</span>
+                    </li>
+                  </ul>
+                  
+                </div>
+              </div>
+              <div class="col-left">
+               <div class="content-col-left">
+                <div class="img-lista">
+                  <a href="{{url('/empregos')}}"><img class="img-lista-empregador img-fluid"src="https://www.jobs-oberpfalz.de/uploads/profile/763.jpg" alt=""></a>
+                </div>
+                <div class="info-lista">
+                 <h4>Volksbank Raiffeisenbank Nordoberpfalz</h4>
+                 <h2>Estágios para estudantes (semestre prático)</h2>
+                </div>
+                <div class="consulte-lista">
+                  <button><a href="vaga.html">Ver Trabalho</a></button>
+                </div>
+               </div>
+               <div class="content-col-left">
+                <div class="img-lista">
+                  <img class="img-lista-empregador img-fluid"src="https://www.jobs-oberpfalz.de/uploads/profile/763.jpg" alt="">
+                </div>
+                <div class="info-lista">
+                 <h4>Volksbank Raiffeisenbank Nordoberpfalz</h4>
+                 <h2>Estágios para estudantes (semestre prático)</h2>
+                </div>
+                <div class="consulte-lista">
+                  <button>Ver Trabalho</button>
+                </div>
+               </div>
+               <div class="content-col-left">
+                <div class="img-lista">
+                  <img class="img-lista-empregador img-fluid"src="https://www.jobs-oberpfalz.de/uploads/profile/763.jpg" alt="">
+                </div>
+                <div class="info-lista">
+                 <h4>Volksbank Raiffeisenbank Nordoberpfalz</h4>
+                 <h2>Estágios para estudantes (semestre prático)</h2>
+                </div>
+                <div class="consulte-lista">
+                  <button>Ver Trabalho</button>
+                </div>
+               </div>
+               <div class="content-col-left">
+                <div class="img-lista">
+                  <img class="img-lista-empregador img-fluid"src="https://www.jobs-oberpfalz.de/uploads/profile/763.jpg" alt="">
+                </div>
+                <div class="info-lista">
+                 <h4>Volksbank Raiffeisenbank Nordoberpfalz</h4>
+                 <h2>Estágios para estudantes (semestre prático)</h2>
+                </div>
+                <div class="consulte-lista">
+                  <button>Ver Trabalho</button>
+                </div>
+               </div>
+               <div class="content-col-left">
+                <div class="img-lista">
+                  <img class="img-lista-empregador img-fluid"src="https://www.jobs-oberpfalz.de/uploads/profile/763.jpg" alt="">
+                </div>
+                <div class="info-lista">
+                 <h4>Volksbank Raiffeisenbank Nordoberpfalz</h4>
+                 <h2>Estágios para estudantes (semestre prático)</h2>
+                </div>
+                <div class="consulte-lista">
+                  <button>Ver Trabalho</button>
+                </div>
+               </div>
+               <div class="content-col-left">
+                <div class="img-lista">
+                  <img class="img-lista-empregador img-fluid"src="https://www.jobs-oberpfalz.de/uploads/profile/763.jpg" alt="">
+                </div>
+                <div class="info-lista">
+                 <h4>Volksbank Raiffeisenbank Nordoberpfalz</h4>
+                 <h2>Estágios para estudantes (semestre prático)</h2>
+                </div>
+                <div class="consulte-lista">
+                  <button>Ver Trabalho</button>
+                </div>
+               </div>
+               <div class="pagination">
+                <ul> <!--pages or li are comes from javascript --> </ul>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>   
+    </main>
+    <footer>
+        <!------------------Footer----------------------------->
+        <div class="content">
+          <div class="top">
+            <div class="logo-details">
+              <img src="{{storage('assets/img/logotipox.png')}}" alt="">
+              <span class="logo_name">Jobs-Oberpfalz.de</span>
+            </div>
+            <div class="media-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <hr id="hr-footer">
+          <div class="link-boxes">
+            <ul class="box">
+              <li class="link_name">Jobs Oberpfalz</li>
+              <li><a href="">Über uns</a></li>
+              <li><a href="">Fragen & Antworten</a></li>
+              <li><a href="">Kontakt</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">FÜR ARBEITGEBER</li>
+              <li><a href="">Funktionen</a></li>
+              <li><a href="">Kundenstimmen</a></li>
+              <li><a href="">Preise</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Partner Jobbörsen</li>
+              <li><a href="">www.jobs-niederbayern.de</a></li>
+              <li><a href="">www.jobs-mittelfranken.de</a></li>
+              <li><a href="">nomaden.jobs</a></li>
+            </ul>
+            <ul class="box input-box">
+              <li class="link_name">Company</li>
+              <li><input type="text" placeholder="Enter your email"></li>
+              <li><input type="button" value="Subscribe"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottom-details">
+          <div class="bottom_text">
+            <span class="copyright_text">Copyright &#169; 2022 <a id="areya"href="https://www.areya.de/software/cms">Areya CMS</a> all rights reserved</span>
+            <span class="policy_terms">
+              <a href="https://www.jobs-oberpfalz.de/agb">Termos e Condições</a>
+              <a href="https://www.jobs-oberpfalz.de/datenschutz">Politica de Privacidade</a>
+              <a href="https://www.jobs-oberpfalz.de/impressum">Imprimir</a>
+            </span>
+          </div>
+        </div>
+    </footer>
+    
+   
+    
+    
+      
+            
+</body>
+</html>

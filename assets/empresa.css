@@ -1,0 +1,179 @@
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap');
+
+body, html{
+    
+    color: var(--body-color);
+    font-family: 'Roboto', 'Helvetica', 'Arial';
+    transition: all 0.4s ease;
+    background-color: var(--body-color);
+    width: 100vw;
+    height: auto;
+}
+main{
+    background-color: var(--body-color);
+    height:auto;
+}
+/*---------------------HEADER-------------------------------*/
+
+/* ===== Colours ===== */
+:root{
+    --body-color: #ffffff;
+    --nav-color: #232d60;
+    --side-nav: #010718;
+    --text-color: #FFF;
+    --text-lista-color: #232d60;
+    --search-bar: #F2F2F2;
+    --search-text: #010718;
+    --text-hero: #000000;
+    --login-color: rgb(244,156,53);
+}
+
+body.dark{
+    --body-color: #18191A;
+    --nav-color: #242526;
+    --side-nav: #242526;
+    --text-color: #CCC;
+    --search-bar: #242526;
+    --text-hero: #CCC;
+    --login-color: rgb(244,156,53);
+    --text-lista-color: #FFFFFF;
+}
+header{
+    padding-bottom: 80px;
+}
+a, ol, ul{
+    text-decoration: none;
+}
+
+/*-----------HERO INICIAL----------*/
+.principal{
+    position: relative;
+}
+
+.txt{
+  display: flex;
+  color: #FFF;
+  background-color:#232d6042;
+  padding: 20px;
+  width: 80%;
+  border-radius: 8px;
+  position: absolute; 
+  top: 70% ;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+}
+.txt-mobile{
+    display: flex;
+    color:var(--text-hero);
+    padding: 20px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+.txt-mobile h1{
+    padding-left: 20px;
+    color: var(--text-lista-color);
+}
+.img{
+    width: 100%;
+    max-width: 80px;
+}
+.txt h1{
+    padding-left: 20px;
+}
+.sobreempresa{
+    margin: 30px 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.txt-vagas{
+    margin: 5% 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.sobreempresa h2, .txt-vagas h2{
+    color: var(--text-hero);
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 8px 0px;
+    letter-spacing: 0.5px;
+}
+.sobreempresa p{
+    color: var(--text-hero);
+    font-weight:400;
+    font-size: 1rem;
+    padding-top: 8px;
+    padding-right: 30px;
+    letter-spacing: 0.5px;
+}
+.sobreempresa button{
+    background-color: rgb(244,156,53);
+    padding: 6px 8px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  
+}
+
+.sobreempresa button:hover{
+    transform: scale(1.1);
+}
+.sobreempresa button:active{
+   color:#232d60;
+}
+.sobreempresa button a{
+    color: #ffffff;
+    font-weight: 500;
+    padding: 8px 10px;
+}
+.content-col-left{
+    max-width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.col-left{
+    justify-content: center;
+    margin-bottom: 10%;
+}
+@media(max-width: 590px){
+    .col-left .content-col-left{
+        display: grid;
+        grid-template-columns: 1fr;
+        place-items: center;
+        padding: 10px 10px;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 10%;
+    }
+    .sobreempresa button{
+        min-width: 230px;
+    }
+    .consulte-lista button{
+        min-width: 230px;
+    }
+}
+@media(max-width: 690px){
+    .txt{
+        display: none;
+    }
+    .principal{
+        position: static;
+    }
+
+}
+@media(min-width: 690px){
+    .txt-mobile{
+        display: none;
+    }
+}
