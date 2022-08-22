@@ -17,8 +17,9 @@
 
     <!--CSS e JS-->
     <link rel="stylesheet" type="text/css" href="{{storage('assets/empresa.css')}}">
-    <link rel="stylesheet" href="{{storage('assets/empresa.')}}">
-    <script src="assets/empresa.js"></script>  
+    <link rel="stylesheet" href="{{storage('assets/empresa.css')}}">
+    <link rel="stylesheet" href="{{storage('assets/empresa.js')}}">
+    
     
     <!--Fontawesome CDN Link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
