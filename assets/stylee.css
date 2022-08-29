@@ -15,10 +15,9 @@ body, html{
     color: #000000;
     font-family: 'Roboto', 'Helvetica', 'Arial';
     transition: all 0.4s ease;
-    background-color: var(--body-color);
-   
-    
+    background-color: var(--body-color)!important; 
 }
+
 li{
     list-style: none;
 }
@@ -46,14 +45,15 @@ ul{
 /* ===== Colours ===== */
 :root{
     --body-color: #ffffff;
-    --nav-color: #232d60;
+    --nav-color: #ffffff;
     --side-nav: #010718;
-    --text-color: #FFF;
+    --text-color: rgb(0, 0, 0);
     --text-lista-color: #232d60;
     --search-bar: #F2F2F2;
     --search-text: #010718;
     --text-hero: #000000;
     --login-color: rgb(244,156,53);
+    --box-shadow:rgba(0,0,0,0.5);
 }
 
 body.dark{
@@ -65,16 +65,19 @@ body.dark{
     --text-hero: #CCC;
     --login-color: rgb(244,156,53);
     --text-lista-color: #FFFFFF;
+    --box-shadow:rgba(255, 255, 255, 0.327);
 }
 
 nav{
     position: fixed;
     top: 0;
     left: 0;
-    height: 80px;
+    height: auto;
     width: 100%;
     background-color: var(--nav-color);
     z-index: 100;
+    box-shadow: 0 2px 4px 0 var(--box-shadow);
+    box-shadow: 0 2px 8px 0 var(--box-shadow);
 }
 
 body.dark nav{
@@ -85,7 +88,6 @@ body.dark nav{
 nav .nav-bar{
     position: relative;
     height: 100%;
-    max-width: 1100px;
     width: 100%;
     background-color: var(--nav-color);
     margin: 0 auto;
@@ -93,6 +95,7 @@ nav .nav-bar{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 nav .nav-bar .sidebarOpen{
@@ -132,6 +135,7 @@ nav .nav-bar .logo a{
 #login{
     color: var(--login-color) !important;
     font-weight: 700 !important;
+    position: relative !important;;
 }
 .nav-links li a{
     position: relative;
@@ -145,7 +149,7 @@ nav .nav-bar .logo a{
 .nav-links li:hover{
     transform: scale(1.1);
 }
-.nav-links li a:hover{
+.nav-links li a:hover, .btn-modal-footer:hover{
     background-color:rgba(53, 129, 244, 0.422);
     border-radius: 5px;
 }
@@ -247,34 +251,7 @@ nav .nav-bar .logo a{
     z-index: -1;
 }
 
-.search-field input{
-    height: 100%;
-    width: 100%;
-    padding: 0 45px 0 15px;
-    outline: none;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--search-text);
-    background-color: var(--search-bar);
-}
-
-body.dark .search-field input{
-    color: var(--text-color);
-}
-
-.search-field i{
-    position: absolute;
-    color: var(--nav-color);
-    right: 15px;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-body.dark .search-field i{
-    color: var(--text-color);
-}
+  
 
 
 /*-----------Animação Load------*/
@@ -292,56 +269,15 @@ body.dark .search-field i{
     }
 }
 
-/*------Sessão Hero Imagem e Texto principal------*/
-.hero-inicial{
-    height: 100vh;
-    width: 100%;
-}
-  
-.content-txt{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 15%;
-    
-}
-.content-hero h1{
-    font-size: 3rem;
-    font-weight: 100px;
-    margin-top: 24px;
-    margin-bottom: 15px;
-    color: var(--text-hero);
-    grid-column: 2;
-    animation-delay: 0.8s;
-}
-.content-hero p{
-    font-size: 1.25rem;
-    margin-top: 0px;
-    margin-bottom: 30px;
-    font-weight: 100px;
-    color: var(--text-hero);
-    grid-column: 2;
-    animation-delay: 1.2s;
-}
-.content-hero .feature-img{
-    max-width: 100%;
-    grid-column: 1;
-    animation-delay: 0.3s;
-    display: block;
-    width: 500px;
-    
-}
-
 /*____________Slider_________________*/
-.top{
-    margin-top: 5%;
-    margin-bottom: 5%;
-    
-}
+
 .top h3{
     color: var(--text-lista-color);
     font-size: 2rem;
     font-weight: 500;
     text-decoration: underline;
+    margin: 2% 0;
+    
     
 }
 .slider{
@@ -456,11 +392,11 @@ body.dark .search-field i{
     color: var(--text-lista-color);
 }
 .col-left .content-col-left{
+    box-shadow: 0px 1px 6px  rgba(0, 0, 0, 0.5);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     place-items: center;
     margin-bottom: 5%; 
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
     background: rgba(255, 255, 255, 0.1);
     overflow: hidden;
     border-radius: 10px;
@@ -472,7 +408,7 @@ body.dark .search-field i{
 .consulte-lista button{
     background-color:rgb(244,156,53);
     border-radius: 5px;
-    padding: 6px 6px;
+    padding: 12px 8px;
     color: #ffffff;
     font-weight: 500;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -880,24 +816,13 @@ footer .bottom-details .bottom_text{
         font-size: 1.125rem;
         color: #ffffff;
     }
-    .top h3{
-        margin-top: 10%;
-    }
     
 
-
 }
-@media(min-width: 1200px){
-    .list-container{
-        margin-top: 5%;
 
-    }
-    .top h3{
-        margin-top: 10%;
-    }
+@media(min-width: 1200px){
     .slider{
         width: 75vw !important;
-        
     }
 }
 @media(max-width: 900px){
@@ -926,30 +851,12 @@ footer .bottom-details .bottom_text{
     }
 }
 @media(max-width: 890px){
-    .content-hero .content-txt, .lista{
-        grid-template-columns: 1fr;
-        place-items: center;
-        text-align: center;
-    }
-    .content-hero h1 {
-        font-size: 2rem;
-    }
-    .formulario{
-        display: flex;
-        justify-content: center;
-    }
    
     .content-col-left{
         margin-top: 1%;
         padding: 10px 0;
     }
-    .feature-img{
-        max-width: 450px !important;
-    }
-    .list-container{
-        margin-top: 35%;
-
-    }
+    
   
 }
 @media (max-width: 790px) {
@@ -985,9 +892,7 @@ footer .bottom-details .bottom_text{
         align-items: center;
         justify-content: space-between;
     }
-    .feature-img{
-        max-width: 350px !important;
-    }
+    
 
     .logo-toggle .siderbarClose{
         color: var(--text-color);
@@ -1004,10 +909,7 @@ footer .bottom-details .bottom_text{
         display: block;
         margin-top: 20px;
     }
-    .top h3{
-        margin: 15% 0;
-        
-    }
+    
       
 }
 
@@ -1060,9 +962,6 @@ footer .bottom-details .bottom_text{
     }
     .consulte-lista button{
         min-width: 230px;
-    }
-    .feature-img{
-       margin-top: 10%;
     }
     
 }

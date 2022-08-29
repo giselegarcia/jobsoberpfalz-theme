@@ -1,0 +1,61 @@
+z
+/* ===== Colours ===== */
+:root{
+  --body-color: #ffffff;
+  --nav-color: #ffffff;
+  --side-nav: #010718;
+  --text-color: rgb(0, 0, 0);
+  --text-lista-color: #232d60;
+  --search-bar: #F2F2F2;
+  --search-text: #010718;
+  --text-hero: #000000;
+  --login-color: rgb(244,156,53);
+  --txt-destaque: rgb(244,156,53);
+  --box-shadow:rgba(0,0,0,0.5);
+}
+
+body.dark{
+  --body-color: #18191A;
+  --nav-color: #242526;
+  --side-nav: #242526;
+  --text-color: #CCC;
+  --search-bar: #242526;
+  --text-hero: #CCC;
+  --txt-destaque: #FFFFFF;
+  --login-color: rgb(244,156,53);
+  --text-lista-color: #FFFFFF;
+  --box-shadow:rgba(255, 255, 255, 0.327);
+}
+.txt-d{
+  color: var(--txt-destaque);
+  
+}
+
+.box-shadow {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.05),
+              0 4px 8px 0 rgba(0,0,0,.05);
+}
+
+#home-quote {
+  background: url('../img/bg-quote.jpg') center center;
+  background-size: cover;
+}
+
+@media (max-width: 767px) {
+  #home-quote .display-4{
+    font-size: 2.5rem;
+  }
+  body {
+    padding-top: 0px;
+  }
+  .fixed-top {
+    position: relative;
+  }
+}
+
+.border-top {
+  border-top: 1px solid rgba(0,0,0,.2);
+}
+.cadastro{
+  margin-top: 140px;
+}
