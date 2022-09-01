@@ -10,15 +10,15 @@
 <script type="text/javascript" src="{{storage('js/popper.min.js')}}"></script>
 <script type="text/javascript" src="{{storage('js/bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{storage('js/app.js')}}"></script>
+<script type="text/javascript" src="{{storage('js/cadastro.js')}}"></script>
 @stop
 @section("body")
 
     @include ('template.'.config('settings.template').'.content.header')
-    <main class="cadastro">
+    <main class="my-5">
     <section class="container">
       <div class="my-5 text-center">
-       
-        <h1 class="display-4 text-dark">Neues Arbeitgeberkonto anlegen</h1>
+        <h1 class="display-4 pt-5 txt-h1">Neues Arbeitgeberkonto anlegen</h1>
       </div>
       <div class="row">
         <form class="col-lg-6" action="">
@@ -100,8 +100,11 @@
               Ich habe die <a href="https://www.jobs-oberpfalz.de/agb">AGB</a> sowie die <a href="https://www.jobs-oberpfalz.de/datenschutz">Datenschutzerklärung</a> gelesen und akzeptiert.
             </label>
           </div>
+          <div class="py-3">
+            <button type="submit" class="btn btn-primary btn-lg">Contratar Plano</button>
+          </div>
           
-          <button type="submit" class="btn btn-primary btn-lg">Contratar Plano</button>
+          
           
         </form>
         

@@ -3,195 +3,51 @@
 @section("style")
 <link rel="stylesheet" href="{{storage('assets/stylee.css')}}">
 <link rel="stylesheet" href="{{storage('css/bootstrap.css')}}">
-<link rel="stylesheet" href="{{storage('css/style.css')}}">
+<link rel="stylesheet" href="{{storage('css/empregosporsetor.css')}}">
 <link rel="stylesheet" href="{{storage('assets/img')}}"> 
 
 <script type="text/javascript" src="{{storage('js/jquery-3.2.1.slim.min.js')}}"></script>
 <script type="text/javascript" src="{{storage('js/popper.min.js')}}"></script>
 <script type="text/javascript" src="{{storage('js/bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{storage('js/app.js')}}"></script>
+<script type="text/javascript" src="{{storage('js/empregosporsetor.js')}}"></script>
 @stop
 @section("body")
 
     @include ('template.'.config('settings.template').'.content.header')
-    <main class="">
-    <div class="container">
-        
-
+    <main class="mt-5">
+       
         <div class="container">
-            <style>
-                .container{
-                    margin-top:300px;
-                }
-            </style>
             <div class="row">
-
-                <div class="col-12">
-                    <br>
-                    <br>
-
-                    <h1>Jobangebote nach Branchen</h1>
-
-                    <br>
+                <div class="col-md-12 mt-5">
+                    <h1 class="display-4 py-5">Arbeitgeber in der Oberpfalz</h1>
                 </div>
-
-
-                <style>
-                    .jobbranche{
-                        font-size: 19px;
-                        border: 2px solid #f49c35;
-                        background-color: #f8f8f8;
-                        color: black;
-                        padding:10px;
-                        margin: 8px;
-                        
-
-                    }
-
-                    .jobbranche:hover{
-                        border: 2px solid #ec8b19;
-                        background-color: #f49c35;
-                        color: white;
-                    }
-
-
-                    #jobbranche{
-                        text-align: center;
-                        margin-top:30px;
-                        overflow: scroll-x;
-                        margin-bottom: 20vh;
-
-
-                    }
-                    #jobbranche a:hover, #jobbranche a:active{
-                        text-decoration: none;
-                    }
-
-                </style>
-
-                <div id="jobbranche">
-
-                    
-                        <a href="https://www.jobs-oberpfalz.de/iframe">
-                            <div class="badge primary jobbranche">
-                                Iframe
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/wissenschaft-ingenieurwesen">
-                            <div class="badge primary jobbranche">
-                                Wissenschaft &amp; Ingenieurwesen
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/computer-it">
-                            <div class="badge primary jobbranche">
-                                Computer &amp; IT
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/gesundheitswesen">
-                            <div class="badge primary jobbranche">
-                                Gesundheitswesen
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/management">
-                            <div class="badge primary jobbranche">
-                                Management
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/produktion-lager">
-                            <div class="badge primary jobbranche">
-                                Produktion &amp; Lager
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/buchhaltung-finanzen">
-                            <div class="badge primary jobbranche">
-                                Buchhaltung &amp; Finanzen
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/vertrieb-einzelhandel">
-                            <div class="badge primary jobbranche">
-                                Vertrieb &amp; Einzelhandel
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/bauwesen">
-                            <div class="badge primary jobbranche">
-                                Bauwesen
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/installation-wartung-instandsetzung">
-                            <div class="badge primary jobbranche">
-                                Installation, Wartung &amp; Instandsetzung
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/verwaltung-buro">
-                            <div class="badge primary jobbranche">
-                                Verwaltung &amp; Büro
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/bildung">
-                            <div class="badge primary jobbranche">
-                                Bildung
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/transport-logistik">
-                            <div class="badge primary jobbranche">
-                                Transport &amp; Logistik
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/personalwesen">
-                            <div class="badge primary jobbranche">
-                                Personalwesen
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/gastronomie">
-                            <div class="badge primary jobbranche">
-                                Gastronomie
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/reisen-unterhaltung">
-                            <div class="badge primary jobbranche">
-                                Reisen &amp; Unterhaltung
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/kundenservice">
-                            <div class="badge primary jobbranche">
-                                Kundenservice
-                            </div>
-                        </a>
-                    
-                        <a href="https://www.jobs-oberpfalz.de/offentlicher-dienst">
-                            <div class="badge primary jobbranche">
-                                Öffentlicher Dienst
-                            </div>
-                        </a>
-                    
-
-
+                <div class="col-md-12">
+                    <ol type = "a" class="mb-5">
+                        <li><a href="https://www.jobs-oberpfalz.de/gesundheitswesen">Assistência médica</a></li>
+                        <li> <a href="https://www.jobs-oberpfalz.de/kundenservice">Atendimento ao Cliente</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/wissenschaft-ingenieurwesen">Ciência e engenharia</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/computer-it">Computadores e TI</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/bauwesen">Construção</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/buchhaltung-finanzen">Contabilidade e finanças</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/vertrieb-einzelhandel">Distribuição e Varejo</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/verwaltung-buro">Escritório de Administração</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/gastronomie">Gastronomia</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/management">Gestão</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/installation-wartung-instandsetzung">Instalação, manutenção e reparo</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/iframe">Iframe</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/produktion-lager">Produção e Armazém</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/personalwesen">Recursos humanos</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/offentlicher-dienst">Serviço público</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/transport-logistik">Transporte e Logística</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/bildung">Treinamento</a></li>
+                        <li><a href="https://www.jobs-oberpfalz.de/reisen-unterhaltung">Viagens e entretenimento</a></li>
+                    </ol>
                 </div>
             </div>
         </div>
 
-
-
-
-
-
-    </div>
+                
 
     </main>
     @include ('template.'.config('settings.template').'.content.footer')

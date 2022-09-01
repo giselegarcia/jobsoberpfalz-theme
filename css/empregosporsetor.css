@@ -1,4 +1,11 @@
-z
+body, html{
+    
+    color: #000000;
+    font-family: 'Roboto', 'Helvetica', 'Arial';
+    transition: all 0.4s ease;
+    background-color: var(--body-color)!important; 
+}
+
 /* ===== Colours ===== */
 :root{
   --body-color: #ffffff;
@@ -26,33 +33,31 @@ body.dark{
   --text-lista-color: #FFFFFF;
   --box-shadow:rgba(255, 255, 255, 0.327);
 }
-
-.txt-h1{
-  color: var(--text-hero);
+h1{
+    color: var( --text-hero);
 }
-
-.box-shadow {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.05),
-              0 4px 8px 0 rgba(0,0,0,.05);
+ol{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-
-#home-quote {
-  background: url('../img/bg-quote.jpg') center center;
-  background-size: cover;
+ol li{
+    padding: 6px 20px;
+    border: 2px solid rgb(244,156,53);
+    border-radius: 5px;
+    margin: 12px 12px;
 }
-
-@media (max-width: 767px) {
-  #home-quote .display-4{
-    font-size: 2.5rem;
-  }
-  body {
-    padding-top: 0px;
-  }
-  .fixed-top {
-    position: relative;
-  }
+li a{
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text-hero);
+    
 }
-
-.border-top {
-  border-top: 1px solid rgba(0,0,0,.2);
+ol li:hover{
+    background-color: rgb(244,156,53);
+    transform: scale(1.1);
+}
+li a:hover{
+    text-decoration: none;
+    color: var(--text-hero);
 }

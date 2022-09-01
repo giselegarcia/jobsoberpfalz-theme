@@ -125,12 +125,7 @@ nav .nav-bar .logo a{
     list-style: none;
     margin-top: 10px;
 }
-#registre{
-    background-color:rgb(244,156,53);
-    border-radius: 5px;
-    padding: 10px 8px !important;
-    color: #FFFFFF !important; 
-}
+
 
 #login{
     color: var(--login-color) !important;
@@ -151,7 +146,7 @@ nav .nav-bar .logo a{
 }
 .nav-links li a:hover, .btn-modal-footer:hover{
     background-color:rgba(53, 129, 244, 0.422);
-    border-radius: 5px;
+    
 }
 .nav-links li a:active{
    color:rgba(64, 239, 0, 0.983)
@@ -275,9 +270,8 @@ nav .nav-bar .logo a{
     color: var(--text-lista-color);
     font-size: 2rem;
     font-weight: 500;
-    text-decoration: underline;
-    margin: 2% 0;
-    
+    margin: 5% 0;
+
     
 }
 .slider{

@@ -1,0 +1,78 @@
+body, html{
+    
+    color: #000000;
+    font-family: 'Roboto', 'Helvetica', 'Arial';
+    transition: all 0.4s ease;
+    background-color: var(--body-color)!important; 
+}
+
+/* ===== Colours ===== */
+:root{
+  --body-color: #ffffff;
+  --nav-color: #ffffff;
+  --side-nav: #010718;
+  --text-color: rgb(0, 0, 0);
+  --text-lista-color: #232d60;
+  --search-bar: #F2F2F2;
+  --search-text: #010718;
+  --text-hero: #000000;
+  --login-color: rgb(244,156,53);
+  --txt-destaque: rgb(244,156,53);
+  --box-shadow:rgba(0,0,0,0.5);
+}
+
+body.dark{
+  --body-color: #18191A;
+  --nav-color: #242526;
+  --side-nav: #242526;
+  --text-color: #CCC;
+  --search-bar: #242526;
+  --text-hero: #ffffff;
+  --txt-destaque: #FFFFFF;
+  --login-color: rgb(244,156,53);
+  --text-lista-color: #FFFFFF;
+  --box-shadow:rgba(255, 255, 255, 0.327);
+}
+h1{
+    color: var( --text-hero);
+}
+
+.card{
+    display: flex;
+    box-shadow: 0px 1px 6px  rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 12px 16px;
+    position: relative;
+    min-height: 22 
+    0px; 
+    justify-content: center;
+}
+.card:hover{
+    transform: scale(1.1);
+}
+.img-card{
+    display: flex;
+    justify-content: center;
+}
+img{
+    max-height: 130px;
+    min-height: 120px;
+}
+.vagas{
+    background-color: rgb(244,156,53);
+    padding: 6px 6px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.vagas:hover{
+    color: #FFFFFF;
+    text-decoration: none;
+   
+}
+

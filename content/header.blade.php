@@ -46,17 +46,22 @@
                 <i class='bx bx-x siderbarClose'></i>
             </div>
             <ul class="nav-links">
+                <li><a class="dropdown-item" href="{{url('/visaogeraldoempregador')}}">Arbeitgeberübersicht</a></li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="">Arbeitgeberübersicht</a>
                     <a class="dropdown-item" href="{{url('/empregosporsetor')}}">Jobs nach Branchen</a>
-                    <a class="dropdown-item" href="">Jobs nach Regionen</a>
+                    <a class="dropdown-item" href="{{url('/empregosporlocalidade')}}">Jobs nach Regionen</a>
                   </div>
                 </li>
-                <li><a href="#" class="item-nav">Info</a></li>
-                <li><a id="login" href="#" data-toggle="modal" data-target="#modalLogin" class="item-nav" data-toggle="modal" data-target="#modalLogin" >Login</a></li>
-                <li><a id="registre" href="{{url('/cadastro')}}"class="item-nav">Registrieren</a></li>
+              
+                <li class="nav-item dropdown" >
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Arbeitgeber Info</a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a id="login" href="#" data-toggle="modal" data-target="#modalLogin" class="dropdown-item" data-toggle="modal" data-target="#modalLogin" >Login</a>
+                    <a  href="{{url('/cadastro')}}" class="dropdown-item">Registrieren</a>
+                  </div>
+                </li>
             </ul>
           </div>
         </div>
