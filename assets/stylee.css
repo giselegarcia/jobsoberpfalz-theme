@@ -54,6 +54,7 @@ ul{
     --text-hero: #000000;
     --login-color: rgb(244,156,53);
     --box-shadow:rgba(0,0,0,0.5);
+    
 }
 
 body.dark{
@@ -66,6 +67,7 @@ body.dark{
     --login-color: rgb(244,156,53);
     --text-lista-color: #FFFFFF;
     --box-shadow:rgba(255, 255, 255, 0.327);
+    
 }
 
 nav{
@@ -145,7 +147,8 @@ nav .nav-bar .logo a{
     transform: scale(1.1);
 }
 .nav-links li a:hover, .btn-modal-footer:hover{
-    background-color:rgba(53, 129, 244, 0.422);
+    background-color:rgba(244, 155, 53, 0.324);
+    border-radius: 5px;
     
 }
 .nav-links li a:active{

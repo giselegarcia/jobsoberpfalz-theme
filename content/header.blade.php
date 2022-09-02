@@ -54,14 +54,18 @@
                     <a class="dropdown-item" href="{{url('/empregosporlocalidade')}}">Jobs nach Regionen</a>
                   </div>
                 </li>
-              
-                <li class="nav-item dropdown" >
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Arbeitgeber Info</a>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Arbeitgeber Info</a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{url('/######')}}">Arbeitgeber Info</a>
                     <a id="login" href="#" data-toggle="modal" data-target="#modalLogin" class="dropdown-item" data-toggle="modal" data-target="#modalLogin" >Login</a>
-                    <a  href="{{url('/cadastro')}}" class="dropdown-item">Registrieren</a>
+                    <a id="registre" href="{{url('/cadastro')}}"class="dropdown-item">Registrieren</a>
                   </div>
                 </li>
+
+
+                
             </ul>
           </div>
         </div>

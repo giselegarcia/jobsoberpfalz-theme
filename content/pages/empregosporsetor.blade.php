@@ -15,7 +15,7 @@
 @section("body")
 
     @include ('template.'.config('settings.template').'.content.header')
-    <main class="mt-5">
+    <main class="my-5">
        
         <div class="container">
             <div class="row">
