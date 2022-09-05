@@ -35,9 +35,9 @@
                           
                                 <div class="cards py-3">
                                    <div class="row">
-                                        <div class="col-md-12 topo-cards pt-2">
+                                        <div class="col-md-12 topo-cards">
                                             <img class="logo-empresa" src="https://www.jobs-oberpfalz.de/uploads/profile/312.jpg" alt="">
-                                            <span class="text-center">0 jobs</span>
+                                            <span class="text-center span">0 jobs</span>
                                         </div>
                                         <div class="col-md-12 mt-3">
                                             <div class="info-cards">
