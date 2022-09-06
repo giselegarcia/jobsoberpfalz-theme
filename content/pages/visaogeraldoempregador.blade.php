@@ -30,10 +30,10 @@
                 <div class="col-md-12 mt-5">
                     <div class="row">
                     @for($i=1;$i<=6; $i++)
-                        <div class="col-lg-2 col-md-3 col-sm-6">
+                        <div class="col-lg-2 col-md-3 col-sm-6 card-cards">
 
                           
-                                <div class="cards py-3">
+                                <div class="cards py-3 my-3">
                                    <div class="row">
                                         <div class="col-md-12 topo-cards">
                                             <img class="logo-empresa" src="https://www.jobs-oberpfalz.de/uploads/profile/312.jpg" alt="">
@@ -59,17 +59,18 @@
                 <div class="col-md-12 mt-5">
                     <div class="row">
                     @for($i=1;$i<=6; $i++)
-                        <div class="col-lg-2 col-md-3 col-sm-6">
+                        <div class="col-lg-2 col-md-3 col-sm-6 card-cards">
 
                           
-                                <div class="cards py-3">
+                                <div class="cards py-3 my-3">
                                    <div class="row">
-                                        <div class="col-md-12 topo-cards pt-2">
-                                            <img class="logo-empresa" src="https://www.jobs-oberpfalz.de/uploads/profile/767.jpg" alt="">
-                                            <span class="text-center">0 jobs</span>
+                                        <div class="col-md-12 topo-cards">
+                                            <img class="logo-empresa" src="https://www.jobs-oberpfalz.de/uploads/profile/1226.jpg" alt="">
+                                            <span class="text-center span">0 jobs</span>
                                         </div>
                                         <div class="col-md-12 mt-3">
                                             <div class="info-cards">
+                                                
                                                 <p class="text-center">Auto-Teile-Unger</p>
                                             </div>
                                         </div>
@@ -84,22 +85,25 @@
                         
                     </div>
                 </div>
+
+
+
+
 <!--Empresas job close-->
                 <div class="col-md-12 mt-5">
                     <h3 class="pt-3">Empresas parceiras com vagas encerradas</h3>
                 </div>
-
                 <div class="col-md-12 mt-5">
                     <div class="row">
                     @for($i=1;$i<=6; $i++)
-                        <div class="col-lg-2 col-md-3 col-sm-6">
+                        <div class="col-lg-2 col-md-3 col-sm-6 card-cards">
 
                           
-                                <div class="cards py-3">
+                                <div class="cards py-3 my-3">
                                    <div class="row">
-                                        <div class="col-md-12 topo-cards pt-2">
-                                            <img class="logo-empresa" src="https://www.jobs-oberpfalz.de/uploads/profile/1289.jpg" alt="">
-                                           
+                                        <div class="col-md-12 topo-cards">
+                                            <img class="logo-empresa" src="https://www.jobs-oberpfalz.de/uploads/profile/1939.png" alt="">
+                                            <span class="text-center span">0 jobs</span>
                                         </div>
                                         <div class="col-md-12 mt-3">
                                             <div class="info-cards">
@@ -121,17 +125,18 @@
                 <div class="col-md-12 mt-5">
                     <div class="row">
                     @for($i=1;$i<=6; $i++)
-                        <div class="col-lg-2 col-md-3 col-sm-6">
+                        <div class="col-lg-2 col-md-3 col-sm-6 card-cards">
 
                           
-                                <div class="cards py-3">
+                                <div class="cards py-3 my-3">
                                    <div class="row">
-                                        <div class="col-md-12 topo-cards pt-2">
-                                            <img class="logo-empresa" src="https://www.jobs-oberpfalz.de/uploads/profile/769.jpg" alt="">
-                                           
+                                        <div class="col-md-12 topo-cards">
+                                            <img class="logo-empresa" src="https://www.jobs-oberpfalz.de/uploads/profile/1289.jpg" alt="">
+                                            <span class="text-center span">0 jobs</span>
                                         </div>
                                         <div class="col-md-12 mt-3">
                                             <div class="info-cards">
+                                                
                                                 <p class="text-center">Auto-Teile-Unger</p>
                                             </div>
                                         </div>
@@ -146,6 +151,10 @@
                         
                     </div>
                 </div>
+
+
+
+
             </div>
         </div>
 

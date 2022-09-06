@@ -18,22 +18,16 @@
 
     @include ('template.'.config('settings.template').'.content.header')
     <main class="my-5">
-        <div class="col-md-12">
+        <div class="col-md-12 mt-5">
             <div class="row">
-                <div class="content-img">
-                    <img class="img-fluid" src="https://www.jobs-oberpfalz.de/uploads/lists/regensburg.jpg" alt="">
-                    <div class="txt">
-                            <h1 class=" col-md-12 pt-5 text-center">Jobs Oberpfalz - Das Jobportal für die Oberpfalz</h1>
-                            <h4 class="col-md-12 py-2 text-center">Pro Monat suchen hier 20.000 Jobsuchende aktiv nach Ihrem Traubjob.</h4>
-                            <p class="col-md-12 py-2 text-center">Inserieren auch Sie Ihre Stellenanzeigen bei uns und wir helfen Ihnen Ihre offenen Arbeitsstellen bestmöglich und kompetent zu besetzen. Jetzt kostenlos starten und testen!</p>
-                            <div class="btn-content">
-                                <button id="btn-txt" class="text-center"><a href="">Jetzt Arbeitgeberkonto erstellen</a></button>
-                            </div>
-                    </div>
-                    
+              <div class="mt-5 infoempregador-text">
+                <h1 class=" col-md-12 pt-5 text-center">Jobs Oberpfalz - Das Jobportal für die Oberpfalz</h1>
+                <h4 class="col-md-12 py-2 text-center">Pro Monat suchen hier 20.000 Jobsuchende aktiv nach Ihrem Traubjob.</h4>
+                <p class="col-md-12 py-2 text-center">Inserieren auch Sie Ihre Stellenanzeigen bei uns und wir helfen Ihnen Ihre offenen Arbeitsstellen bestmöglich und kompetent zu besetzen. Jetzt kostenlos starten und testen!</p>
+                <div class="btn-content">
+                  <button id="btn-txt" class="text-center"><a href="">Jetzt Arbeitgeberkonto erstellen</a></button>
                 </div>
-              
-               
+              </div>
             </div>
         </div>
         <section class="py-5  text-center">
@@ -60,41 +54,93 @@
           
           <div class="col-xl-4 col-md-6">
             <div style="height: 100px;" class="d-flex justify-content-center">
-              <img src="img/icones/translado.svg" alt="Translado">
+              <img src="{{storage('img/Bewerbung.png')}}" alt="Bewerbung ohne Registrierung">
             </div>
-            <h3>Translado</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, nemo nulla.</p>
+            <h3>Bewerbung ohne Registrierung</h3>
+            <p>Bewerber können sich bei uns ohne Registrierung direkt bei Ihnen Bewerben. Zustellug direkt in Ihr Mailpostfach oder weiterleitung per Link.<br><br>Kinderleichte Bewerbung!</p>
           </div>
           
           <div class="col-xl-4 col-md-6">
             <div style="height: 100px;" class="d-flex justify-content-center">
-              <img src="img/icones/praias.svg" alt="Praias">
+              <img src="{{storage('img/Persönliche.png')}}" alt="Persönliche Ansprechpartner">
             </div>
-            <h3>Praias</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, nemo nulla.</p>
+            <h3>Persönliche Ansprechpartner</h3>
+            <p>Feste Ansprechpartner, direkte Kommunikation und kompetente Beratung rund um das Thema Mitarbeitergewinnung in der Oberpfalz.<br><br>Wir kümmern uns!</p>
           </div>
           
           <div class="col-xl-4 col-md-6">
             <div style="height: 100px;" class="d-flex justify-content-center">
-              <img src="img/icones/bagagens.svg" alt="Bagagens">
+              <img src="{{storage('img/Monatlich.png')}}" alt="Monatlich kündbar">
             </div>
-            <h3>Bagagens</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, nemo nulla.</p>
+            <h3>Monatlich kündbar</h3>
+            <p>Warum lange binden? Unsere Premium Angebote lassen Ihnen die Freiheit, jederzeit zu Entscheiden ob wir Ihnen einen Mehrwert bringen. <br><br>Sie haben immer die Wahl!</p>
           </div>
           
           <div class="col-xl-4 col-md-6">
             <div style="height: 100px;" class="d-flex justify-content-center">
-              <img src="img/icones/turismo.svg" alt="Turismo">
+              <img src="{{storage('img/Performance.png')}}" alt="Performance">
             </div>
-            <h3>Turismo</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, nemo nulla.</p>
+            <h3>Performance</h3>
+            <p>Monatliche Auswertungen über Reichweite und Ergebnisse Ihrer Stellenanzeigen ermöglicht Ihnen eine datenbasierte Planung Ihres Werbebudget.<br><br>Daten sind Wissen!</p>
           </div>
-          
+      
+    </section>
+    <section class="container">
+      <div class="text-center my-5">
+        <h1 class="display-4">Escolha o Plano</h1>
+      </div>
+      <div class="row">
+
+<!--plan basico-->
+        <div class="col-md mb-5">
+          <div class="bg-light rounded p-4 box-shadow">
+            <h2 class="py-3">Basis Arbeitgeberkonto</h2>
+            <ul class="lista-plano list-unstyled">
+              <li class="border-top py-3">→ 0,25 € / CPC</li>
+              <li class="border-top py-3">→ Arbeitgeber Profil</li>
+              <li class="border-top py-3">→ Monatlicher Performance Bericht</li>
+            </ul>
+            
+            <div class="row align-items-center mt-4">
+              <div class="col">
+                <a href="{{url('/cadastro')}}" class="btn btn-primary btn-lg btn-block">Arbeitgeberkonto erstellen </a>
+              </div>
+              <div class="col">
+                <p class="text-primary h4">Cost per Click</p>
+                
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <a href="planos.html" class="btn btn-primary btn-lg mt-4">Comprar Plano</a>
+
+
+<!--PlANO GOLD------>
+        <div class="col-md mb-5">
+          <div class="bg-light rounded p-4 box-shadow">
+            <h2 class="py-3">Premium Arbeitgeberkonto <span class="badge badge-success">Premium</span></h2>
+            <ul class="lista-plano list-unstyled">
+              <li>→ Keine Kosten für Anzeigenklicks</li>
+              <li class="border-top py-3">→ Unbegrenzte Premium Stellen</li>
+              <li class="border-top py-3">→ Premium Arbeitgeber Profil</li>
+              <li class="border-top py-3">→ Firma erscheint als Top-Arbeitgeber</li>
+              <li class="border-top py-3">→ Monatlicher Performance Bericht</li>
+              <li class="border-top py-3">→ Monatlich kündbar</li>
+            </ul>
+            <div class="row align-items-center mt-4">
+              <div class="col">
+                <a href="{{url('/cadastrogold')}}" class="btn btn-primary btn-lg btn-block">Arbeitgeberkonto erstellen </a>
+              </div>
+              <div class="col">
+                <p class="text-primary h4">249 € / 30 Tage</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </section>
+    
 
 
 

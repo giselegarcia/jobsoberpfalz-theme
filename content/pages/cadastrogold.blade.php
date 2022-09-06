@@ -111,29 +111,30 @@
         <div class="col-lg-5 mx-auto order-first order-lg-1 mb-5">
           <h2 class="h6 text-primary">PLANO ESCOLHIDO</h2>
           <div class="col-md mb-5">
+          <div class="col-md mb-5">
           <div class="bg-light rounded p-4 box-shadow">
-            <h2 class="py-3">Basis Arbeitgeberkonto</h2>
+            <h2 class="py-3">Premium Arbeitgeberkonto <span class="badge badge-success">Premium</span></h2>
             <ul class="lista-plano list-unstyled">
-              <li class="border-top py-3">→ 0,25 € / CPC</li>
-              <li class="border-top py-3">→ Arbeitgeber Profil</li>
+              <li>→ Keine Kosten für Anzeigenklicks</li>
+              <li class="border-top py-3">→ Unbegrenzte Premium Stellen</li>
+              <li class="border-top py-3">→ Premium Arbeitgeber Profil</li>
+              <li class="border-top py-3">→ Firma erscheint als Top-Arbeitgeber</li>
               <li class="border-top py-3">→ Monatlicher Performance Bericht</li>
+              <li class="border-top py-3">→ Monatlich kündbar</li>
             </ul>
-            
             <div class="row align-items-center mt-4">
               <div class="col">
-                <a href="{{url('/cadastro')}}" class="btn btn-primary btn-lg btn-block">Arbeitgeberkonto erstellen </a>
+                <a href="{{url('/cadastrogold')}}" class="btn btn-primary btn-lg btn-block">Arbeitgeberkonto erstellen </a>
               </div>
               <div class="col">
-                <p class="text-primary h4">Cost per Click</p>
-                
+                <p class="text-primary h4">249 € / 30 Tage</p>
               </div>
             </div>
           </div>
         </div>
+        </div>
+        </div>
       </div>
-
-
-
     </section>
     
 

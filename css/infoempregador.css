@@ -1,33 +1,37 @@
-
-.content-hero{
-    position: absolute;
-}
-.content-img{
-    position: relative;
-    
-}
-.content-img img{
-    width: 100%;
-    height: auto;
-    margin: 0 0;
-    padding: 0 0;
-   
-}
-.txt{
-    color: #FFF;
-    background-color:#232d6042;
-    padding: 20px;
-    width: 80%;
-    border-radius: 8px;
-    position: absolute; 
-    top: 70% ;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
+/* ===== Colours ===== */
+:root{
+    --body-color: #ffffff;
+    --nav-color: #ffffff;
+    --side-nav: #010718;
+    --text-color: rgb(0, 0, 0);
+    --text-lista-color: #232d60;
+    --search-bar: #F2F2F2;
+    --search-text: #010718;
+    --text-hero: #000000;
+    --login-color: rgb(244,156,53);
+    --txt-destaque: rgb(244,156,53);
+    --box-shadow:rgba(0,0,0,0.5);
+  }
+  
+  body.dark{
+    --body-color: #18191A;
+    --nav-color: #242526;
+    --side-nav: #242526;
+    --text-color: #CCC;
+    --search-bar: #242526;
+    --text-hero: #ffffff;
+    --txt-destaque: #FFFFFF;
+    --login-color: rgb(244,156,53);
+    --text-lista-color: #FFFFFF;
+    --box-shadow:rgba(255, 255, 255, 0.327);
   }
 
-.txt button a{
-    color: #ffffff;
+.infoempregador-text{
+    color: var(--text-hero);
+}
+
+a{
+    color: #ffffff !important;
     font-weight: 500;
     text-decoration: none;
 }
@@ -43,4 +47,12 @@
 }
 #btn-txt:hover{
     transform: scale(1.1);
+}
+h1{
+    color: var(--login-color);
+}
+.text-valor{
+    font-size: 3rem;
+    font-weight: 600;
+    color: rgb(244,156,53);
 }
