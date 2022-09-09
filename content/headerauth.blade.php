@@ -1,16 +1,10 @@
 <header class="">
-      <style>
-        a{
-          text-decoration:none;
-          color: #ffffff;
-        }
-      </style>
         <!--  Modal   -->
       <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginTitulo" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="modalLoginTitulo">Entre na Sua Conta</h5>
+              <h5 class="modal-title" id="modalLoginTitulo">Voce esta logado</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -25,7 +19,7 @@
                   <label for="loginSenha">Senha</label>
                   <input type="password" class="form-control" id="loginSenha">
                 </div>
-                <button type="submit" class="btn btn-primary"><a href="{{url('/gerenciarconteudo')}}">Login</a></button>
+                <button type="submit" class="btn btn-primary">Entrar na Conta</button>
                 <small class="form-text text-muted">Esqueceu a senha? <a href="#">Clique aqui</a>.</small>
               </form>
             </div>
@@ -60,6 +54,7 @@
                     <a class="dropdown-item" href="{{url('/empregosporlocalidade')}}">Jobs nach Regionen</a>
                   </div>
                 </li>
+                <img src="https://www.areya.de/images/areya-big-logo.png" width="80" height="70"alt="">
 
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Arbeitgeber Info</a>
