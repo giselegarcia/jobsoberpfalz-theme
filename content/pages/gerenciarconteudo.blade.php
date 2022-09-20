@@ -91,6 +91,7 @@
             }
             .descricao-funcao{
                 display:flex;
+                justify-content:center;
             }
             .descricao-funcao>img{
                 max-width:24px;
@@ -102,7 +103,7 @@
                 font-weight: 600;
                 padding: 0 6px;
                 flex-wrap:wrap;
-
+            
             }
             .paineis-tipo-job .prime{
                 border: 1px solid #232d60;
@@ -166,7 +167,7 @@
                 </div>
                 <div class="row">
                 @for($i=1;$i<=8; $i++)
-                    <div class="conteudo-cadastro-paineis">
+                    <div class="conteudo-cadastro-paineis col-md-12 col-xs-12">
                         <div class=" col-sm-6 col-lg-2 paineis-img">
                             <img src="https://www.areya.de/images/areya-big-logo.png" alt="">
                         </div>
