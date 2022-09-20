@@ -113,7 +113,7 @@
   <div class="banner-principal">
     <div class="container">
       <div class="info-banner-home-new">
-        <h2 class="anim">Die besten Arbeitsstellen<br>der Oberpfalz<span>Jetzt Traumjob finden und direkt online bewerben.</span></h2>
+        <h2 class="anim">Gustavo Luigi<br>der Oberpfalz<span>Jetzt Traumjob finden und direkt online bewerben.</span></h2>
       </div>
     </div>
   </div>
