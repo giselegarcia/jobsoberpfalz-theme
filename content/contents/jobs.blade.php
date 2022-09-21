@@ -32,7 +32,7 @@
         <section class="container">
             <div class="txt">
                 <a href="empresa.html"><img class="img" src="{{storage('assets/img/slide-1.jpg')}}" alt=""></a>
-                <h1>Volksbank Raiffeisenbank Nordoberpfalz</h1>
+                <h1>{{$content->title}}</h1>
             </div>
             <div>
                 <p>Volksbank Raiffeisenbank Nordoberpfalz está procurando por:</p>
@@ -51,36 +51,7 @@
                           </div>
                           <div class="description">
                             <h3>Stellenbeschreibung</h3>
-                            <h4>Ihre Aufgaben:</h4>
-                              <ul>
-                                <li>Mitwirkung bei der kontinuierlichen Entwicklung und Verbesserung unserer Aufbau- und Ablauforganisation</li>
-                                <li>Ausbau und Weiterentwicklung unserer Unternehmenskommunikation (neues Intranet)</li>
-                                <li>Verantwortlich für die Zuordnung von Kompetenzen und Berechtigungen inkl. Pflege der Standardkompetenzprofile</li>
-                                <li>Entwicklung von bankindividuellen Formularen</li>
-                                <li>Einführung und Umsetzungsunterstützung von neuen Anwendungen.</li>
-                                <li>Ausarbeitung neuer Ideen und Begleitung des Digitalisierungsprozesses, um für die Zukunft gut aufgestellt zu sein</li>
-                                <li>Mitgestalten am papierlosen Büro</li>
-                                <li>Bereichsübergreifende Zusammenarbeit mit den Fachabteilungen</li>
-                                <li>Mitarbeit in Projekten (Umsetzung neuer Anforderungen)</li>
-                              </ul>
-                            <h4>Wir bieten:</h4>
-                              <ul>
-                                <li>eine abwechslungsreiche Tätigkeit</li>
-                                <li>ein unbefristetes Arbeitsverhältnis</li>
-                                <li>individuelle Weiterentwicklungsmöglichkeiten</li>
-                                <li>moderne Infrastrukturen</li>
-                                <li>ein flexibles und dynamisches Team</li>
-                              </ul>
-                            <h4>Ihr Profil:</h4>
-                            <ul>
-                              <li>eine abgeschlossene Bankausbildung, im Idealfall ein Abschluss als Bankfachwirt oder ähnliche Qualifikation</li>
-                              <li>eigenverantwortliche und zuverlässige Arbeitsweise</li>
-                              <li>MS-Office-Kenntnisse</li>
-                              <li>lösungsorientierte Denkweise</li>
-                              <li>Fähigkeit Zusammenhänge zu erkennen und herzustellen</li>
-                              <li>Kommunikationsfähigkeit, Überzeugungsfähigkeit, Konfliktfähigkeit</li>
-                            </ul>
-                            <p>Wir freuen uns auf Ihre Online-Bewerbung</p>
+                            {!! $content->stellenbeschreibung !!}
                           </div>
                           <div class="consulte">
                             <button><a href="#">Direkt beim Arbeitgeber bewerben</a></button>

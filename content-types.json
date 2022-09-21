@@ -1,31 +1,67 @@
 [
     {
-        "name":"Emprego",
-        "description":"Emprego",
+        "name":"Jobs",
+        "blade":"jobs",
+        "description":"Stellenanzeigen",
         "icon":"suitcase",
         "status":"1",
-        "blade":"emprego",
         "fields": [
             {
-                "name": "Descrição",
+                "name": "Stellenbeschreibung",
                 "type": "textfield",
                 "required": "1"
             },
             {
-                "name": "Requisitos",
+                "name": "Bewerberqualifikation",
                 "type": "textfield",
                 "required": "0"
             },
             {
-                "name": "Região",
+                "name": "Wir als Arbeitgeber",
+                "type": "textfield",
+                "required": "0"
+            },
+            {
+                "name": "Arbeitsort",
+                "type": "location",
+                "required": "0"
+            },
+            {
+                "name": "Wochenarbeitsstunden",
+                "type": "number",
+                "required": "0"
+            },
+            {
+                "name": "Direktkontakt",
+                "type": "textfield",
+                "required": "0"
+            },
+            {
+                "name": "Link zur Onlinebewerbung",
+                "type": "url",
+                "required": "0"
+            },
+            {
+                "name": "Email zur Onlinebewerbung",
+                "type": "email",
+                "required": "0"
+            },
+            {
+                "name": "Beschäftigungsart",
                 "type": "select-multiple",
-                "options": ["Weiden","Regensburg"],
+                "options": ["Vollzeit","Teilzeit","Minijob","Ausbildung"],
+                "required": "0"
+            },
+            {
+                "name": "Region",
+                "type": "select-multiple",
+                "options": ["Regensburg","Weiden","Schwandorf","Amberg","Cham","Neumarkt","Neustadt","Tirschenreuth","Nabburg","Sulzbach-Rosenberg","Vohenstrauß","Eschenbach"],
                 "required": "1"
             },
             {
-                "name": "Setor",
+                "name": "Branche",
                 "type": "select-multiple",
-                "options": ["TI/Informática","Medicina","Ciência e Engenharia","Contabilidade e Finanças"],
+                "options": ["Computer & IT","Wissenschaft & Ingenieurwesen","Gesundheitswesen","Produktion & Lager","Buchhaltung & Finanzen", "Vertrieb & Einzelhandel", "Bauwesen","Installation, Wartung & Instandsetzung","Verwaltung & Büro","Bildung","Transport & Logistik","Personalwesen","Gastronomie","Reisen & Unterhaltung","Kundenservice","Öffentlicher Dienst"],
                 "required": "1"
             }
         ]
